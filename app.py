@@ -1,7 +1,6 @@
 import sqlite3
 from flask import Flask, jsonify, render_template, request
 from forms import contactForm
-from forms import filterForm
 from flask_mail import Mail, Message 
 
 # configuration

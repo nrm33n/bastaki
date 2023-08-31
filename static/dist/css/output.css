@@ -879,10 +879,6 @@ input[type="range"]::-ms-fill-lower{
   position: relative;
 }
 
-.float-right{
-  float: right;
-}
-
 .float-left{
   float: left;
 }
@@ -988,10 +984,6 @@ input[type="range"]::-ms-fill-lower{
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .flex-col{
   flex-direction: column;
 }
@@ -1060,6 +1052,10 @@ input[type="range"]::-ms-fill-lower{
 
 .rounded-lg{
   border-radius: 0.5rem;
+}
+
+.rounded-xl{
+  border-radius: 0.75rem;
 }
 
 .border{
