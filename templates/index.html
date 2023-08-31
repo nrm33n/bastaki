@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+<!-- <h1 class>{% block title %} Bastaki {% endblock %}</h1>-->
+
+{% block content %}
+
+<div class="">
+<div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+    <!-- INTRO SECTION -->
+
+    <!--<p class="font-semibold p-2 underline">Introduction</p>-->
+        <p class="p-3 fade-in">
+            Bastaki is a dialect of Ajami or Achomi (اچُمی), also called Lar, Lari or Larestani.
+            According to UNESCO's <a class="text-green-800 underline font-semibold hover:text-green-950" href="https://unesdoc.unesco.org/ark:/48223/pf0000187026/PDF/187026eng.pdf.multi">Atlas of the World's Languages in Danger</a>, it is considered "definitely endangered."
+        </p>
+        <p class="p-3 fade-in">
+            There is very little accessible research or resources on the Ajami language, let alone its constituent dialects. 
+            It is also primarily an oral language, making it more difficult to document as there is no written form.  
+        </p>
+        <p class="p-3 fade-in">
+            The intent of this space is to act as a resource to aid research and preservation. As this dictionary continues to be compiled, IPA transcriptions 
+            and transcribed audio samples will be added to help describe dialect-specific accents, grammar, and word choice. 
+        </p>
+
+    <p class ="p-3 fade-in"> To search for a word in the database, start typing below.</p>
+
+    <!-- SEARCH SECTION -->
+    
+    <div class="relative mt-1 p-2 ">
+        <form method="POST" class="flex justify-center" action="{{ url_for('index') }}" id="indform" name="indform" onsubmit="submitFormAjax();">
+            <input type="text" class="block pl-10 text-sm text-gray-900 border p-2
+            border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-green-500 focus:border-green-500 fade-in
+            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500
+            dark:focus:border-green-500" placeholder="Search for a word" id="indsearch" name="indsearch">
+        </form>
+    </div>
+
+    <div class="" id="displayhere">
+    <!-- THE DATA TO BE DISPLAYED-->
+    {% if itm | length != 0 %}
+        <table id="searchresults" class="w-4/5 text-sm text-center text-gray-700 dark:text-gray-400 fade-in">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400 content-center">
+                <tr class="w-3/4">
+                    <th scope="col" class="px-6 py-3">
+                        English
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Bastaki Transliteration
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Part of Speech 
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Additional Classifier
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Example
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in itm %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        {% else %}
+        <div id="searchresults"> </div>
+        {% endif %} 
+
+    </div>
+    <!--AJAX CODE-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+    $("#indsearch").keyup(function(){
+    //$("#indsearch").submit(function(e){
+        //e.preventDefault()
+        var text = $(this).val();
+
+        $.ajax({
+        url: "/process", 
+        type: "post",
+        data: {searchdata: text},
+        success: function(response) {
+            $("#displayhere").html(response);
+        },
+        error: function(xhr) {
+            //Do Something to handle error
+    
+        }
+        });
+    });
+
+    </script>
+     <!--END OF AJAX -->
+
+    <p class="p-3 fade-in">To view the entire database, navigate to the <a class="text-green-800 underline hover:font-semibold hover:text-green0500" href="{{ url_for('dictionary') }}">dictionary</a>.</p>
+    <p class="p-3 fade-in">More information, references, and further reading can be found in the <a class="text-green-800 underline hover:font-semibold hover:text-green0500" href="{{ url_for('info') }}">information</a> section. </p>
+    <p class="p-3"> </p>
+
+</div>
+
+</diV>
+{% endblock %}

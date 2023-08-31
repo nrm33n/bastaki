@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+<!--
+<h1 class>{% block title %} Contact {% endblock %}</h1>
+<br><br>
+<h1><center>Get In Touch</center></h1>
+<br><br>
+
+      <form action="" method="POST">
+        {{form.name.label}}
+        {{form.name(size=40)}}
+        {{form.email.label}}
+        {{form.email(size=60)}}
+        {{form.message.label}}
+        {{form.message()}}
+        {{form.submit()}}
+    </form>
+
+
+-->
+
+{% block content %}
+{% if success %}
+  <p class="fade-in">Thank you for your message. We'll get back to you shortly.</p>
+{% else %}
+<section class="">
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md fade-in">
+      <h2 class="mb-4 text-4xl tracking-tight font-semibold text-center text-gray-900 dark:text-white">Get in Touch</h2>
+      <p class="mb-8 lg:mb-16 font-medium text-center text-gray-500 dark:text-gray-400 sm:text-xl">This is an ongoing project. For any questions or comments, leave a message below..</p>
+      <form action="{{ url_for('contact') }}" method="POST" class="space-y-8">
+        <!--{{ form.hidden_tag() }}-->
+          <fieldset>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+              <input type="email" id="email" name="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+              focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+              dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" 
+              placeholder="name@email.com" required>{{ request.form['email'] }} </input>
+              
+          </fieldset>
+          <fieldset>
+              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+              <input type="text" id="subject" name="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border 
+              border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 
+              dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" 
+              placeholder="Subject" value="{{ request.form['subject'] }}" required> </input>
+              
+          </fieldset>
+          <fieldset class="sm:col-span-2">
+              <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+              <textarea id="message" name="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border 
+              border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+              dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Leave a comment..."> {{ request.form['message'] }} </textarea>
+              
+          </fieldset>
+
+          <button type="submit" class="py-3 px-5 text-sm font-semibold text-center text-white rounded-lg bg-deep-olive sm:w-fit hover:bg-green-800 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Send Message</button>
+      </form>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

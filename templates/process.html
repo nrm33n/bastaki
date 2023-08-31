@@ -1,0 +1,36 @@
+{% if itm | length != 0 %}
+<table id="searchresults" class="w-4/5 text-sm text-center text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400 content-center">
+        <tr class="w-3/4">
+            <th scope="col" class="px-6 py-3">
+                English
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Bastaki Transliteration
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Part of Speech 
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Additional Classifier
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Example
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in itm %}
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <td>{{ i[0] }}</td>
+        <td>{{ i[1] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[3] }}</td>
+        <td>{{ i[4] }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+{% else %}
+<div id="searchresults"> </div>
+{% endif %}
