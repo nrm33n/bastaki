@@ -1,4 +1,9 @@
 {% if itm | length != 0 %}
+<div class="flex flex-col relative mt-1 p-2">
+<div class="overflow-x-scroll sm:-mx-6 lg:-mx-8 ">
+<div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+<div class="overflow-scroll">
+
 <table id="searchresults" class="w-4/5 text-sm text-center text-gray-500 dark:text-gray-400">
     <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400 content-center">
         <tr class="w-3/4">
@@ -33,4 +38,10 @@
 </table>
 {% else %}
 <div id="searchresults"> </div>
+
+
+</div>
+</div>
+</div>
+</div>
 {% endif %}

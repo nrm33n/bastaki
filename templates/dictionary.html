@@ -5,30 +5,17 @@
     
 <!-- SHORT INTRO -->
 
-
-<!--<div class ="grid grid-flow-row auto-rows-max">-->
-<div class = "py-4 lg:py-8 px-4 mx-auto ">
-
-    
-    <!--<div class="pb-4 bg-white dark:bg-gray-900 flow-root">-->
-        <!--<div class="float-left relative mt-1 pb-5 pt-5 pr-5">-->
-           <!--<form method="post" name="searchform">
-                <input type="text" class="block p-2 pl-10 text-sm text-gray-900 border
-                border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-green-500 focus:border-green-500
-                dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500
-                dark:focus:border-blue-green" placeholder="Search for a word" name="search">
-                <input type="submit" value=" ">-->
-            <!--</form>-->
-        
-        <!--</div>-->
+<div class="w-screen">
+<!--<div class ="py-8 lg:py-16 px-4 mx-auto w-5/6 sm:3/4 xl:max-w-screen-lg">-->
+<div class ="py-8 lg:py-16 px-4 mx-auto max-w-screen-lg">
 
         
         <!-- ABOVE TABLE BAR: SEARCH AND FILTER SECTION -->
-        <div class="pl-4 pb-4 dark:bg-gray-900 mx-auto max-w-screen-xl flow-root">
+        <div class="pl-8 pb-4 dark:bg-gray-900 mx-auto max-w-screen-xl flow-root">
             <form method="POST" action="{{ url_for('dictionary') }}" class="space-y-8" name="dictionaryform" id="dictionaryform">
 
             <!-- SEARCH BAR -->
-            <div class="float-left relative mt-1 pb-5 pt-1 pr-5 grid-cols-1"> 
+            <div class="float-left relative mt-1 pb-5 pt-1 pr-5"> 
                 <input type="text" class="block p-1 pl-10 text-sm text-gray-900 border fade-in
                 border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-green-500 focus:border-green-500
                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500
@@ -37,8 +24,8 @@
             <!--END OF SEARCH SECTION-->
 
             <!-- WORD TYPE FILTER -->
-            <div class="mt-1 pb-5 pt-2 pr-5 grid-cols-1">
-                <select id="partofspeech" name="partofspeech" class="float-left block p-1 pl-10 text-sm text-gray-900 border fade-in
+                <div class="mt-1 pb-5 pt-2 pr-5">
+                <select id="partofspeech" name="partofspeech" class="mb-5 float-left block p-1 pl-10 text-sm text-gray-900 border fade-in
                 border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-green-500 focus:border-green-500 hover:bg-light-olive
                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500
                 dark:focus:border-blue-green">
@@ -52,7 +39,7 @@
                     <option value="adverb">Adverbs</option>
                     <option value="culture">Misc.</option>
                 </select>
-                
+
                 <div class="">
                     <button type="submit" class="ml-3 py-1 px-5 text-sm font-semibold text-center text-white rounded-lg bg-deep-olive sm:w-fit 
                     hover:bg-green-800 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Filter</button>
@@ -62,29 +49,33 @@
             </div>
                 
             </form>   
-    <!-- END OF SEARCH+FILTER SECTION-->
     </div>
+    <!-- END OF SEARCH+FILTER SECTION-->
 
-    <div id="dictionarycontent">
+
 
         <!-- THE DATA TO BE DISPLAYED -->
+        <div id="dictionarycontent">
         {% if itm | length != 0 %}
-            <table id="searchresults" class="w-4/5 justify-items-center text-sm text-center text-gray-500 dark:text-gray-400 fade-in mx-auto max-w-screen-2xl rounded-xl">
-                <thead class="text-xs bg-med-olive text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 content-center rounded-xl">
-                    <tr class="w-3/4">
-                        <th scope="col" class="px-6 py-3">
+            <!--<table id="searchresults" class="w-5/6 justify-items-center text-sm text-center text-gray-500 dark:text-gray-400 fade-in mx-auto 
+                rounded-xl overflow-x-auto overflow-hidden max-w-screen-xl">-->
+        
+            <table id="searchresults" class="text-center text-xs min-w-full">
+                <thead class=" bg-med-olive text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
+                    <tr class="">
+                        <th scope="col" class="px-6 sm:px-2 py-4">
                             English
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 sm:px-2 py-4">
                             Bastaki Transliteration
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 sm:px-2 py-4">
                             Part of Speech 
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 sm:px-2 py-4">
                             Additional Classifier
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 sm:px-2 py-4">
                             Example
                         </th>
                     </tr>
@@ -109,5 +100,6 @@
 
     </div>
 
+</div>
 </div>
 {% endblock %}

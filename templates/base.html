@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %} </title> 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='dist/css/htmx.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -17,46 +17,129 @@
     <div class="min-h-screen bg-light-olive">
     <div class="grid grid-flow-row auto-rows-max">
 
-    <!-- NAVBAR -->
 
-    <nav class="px-2 sm:px-4 py-2 rounded bg-light-olive dark:bg-gray-900">
-        <div class="container flex justify-between items-center mx-auto">
-            <a href="{{ url_for('index') }}" class="flex items-center">
-                <span class="self-center text-4xl font-semibold whitespace-nowrap text-deep-olive dark:text-white">Bastaki</span>
+    <!-- RESPONSIVE NAVBAR NO JS 
+    <header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
+  
+        <div class="flex items-center justify-between pl-8 mb-4 md:mb-0">
+          <h1 class="leading-none text-grey-darkest text-4xl">
+            <a class="no-underline text-deep-olive hover:text-green-800" href="{{ url_for('index') }}">
+              Bastaki
             </a>
+          </h1>
+      
+        </div>
+        
+        <nav>
+        <div class="justify-end place-items-end px-2 md:flex md:w-auto md:order-1">
+          <ul class="flex flex-col p-4 mt-4 rounded-lg border md:flex-row md:space-x-8 
+          md:mt-0 md:text-sm md:font-semibold md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li class="md:ml-4">
+              <a class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+              md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+              dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg" href="{{ url_for('index') }}">
+                Home
+              </a>
+            </li>
+            <li class="md:ml-4">
+              <a class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+              md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+              dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg" href="{{ url_for('info') }}">
+                Information
+              </a>
+            </li>
+            <li class="md:ml-4">
+              <a class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+              md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+              dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg" href="{{ url_for('dictionary') }}">
+                Dictionary
+              </a>
+            </li>
+            <li class="md:ml-4">
+                <a class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+                md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+                dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg" href="{{ url_for('contact') }}">
+                  Contact
+                </a>
+            </li>
+          </ul>
+        </div>
+        </nav>
+      </header>
+      <!-- NAVBAR NO JS END-->
 
-            <div class="justify-between items-center w-3/4 md:flex md:w-auto md:order-1">
-                <ul
-                    class="flex flex-col p-4 mt-4  rounded-lg border md:flex-row md:space-x-8 
-                    md:mt-0 md:text-sm md:font-semibold md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>
-                        <a href="{{ url_for('index') }}"
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
-                             md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
-                             dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg">Home</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('info') }}" 
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
-                            md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
-                            dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg">Information</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('dictionary') }}"
-                            class="block py-2 pr-2 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
-                             md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
-                             dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg">Dictionary</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('contact') }}" 
-                            class="block py-2 pr-2 pl-2 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
-                            md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
-                            dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg">Contact</a>
-                    </li>
-                </ul>
+    <!-- NAVBAR 2 WITH JQUERY -->
+    <nav class="bg-light-olive shadow-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="container flex justify-between items-center mx-auto7">
+                    <div>
+                         <!--Website Logo-->
+                        <a href="{{ url_for('index') }}" class="flex items-center py-4 px-2">
+                            <span class="font-semibold text-deep-olive hover:text-green-900 text-4xl">Bastaki</span>
+                        </a>
+                    </div>
+                     <!--Primary Navbar items-->
+                    <div class="hidden md:flex items-center space-x31">
+
+                        <a href="{{ url_for('index') }}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+                        md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+                        dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg font-semibold">Home</a>
+
+                        <a href="{{ url_for('info') }}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+                        md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+                        dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg font-semibold">Information</a>
+
+                        <a href="{{ url_for('dictionary') }}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+                        md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+                        dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg font-semibold">Dictionary</a>
+
+                        <a href="{{ url_for('contact') }}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-deep-olive md:hover:bg-deep-olive hover:text-slate-100
+                        md:hover:text-slate-100 md:p-3 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 hover:rounded-xl
+                        dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg font-semibold">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button" id="mobile-menu-button">
+                    <svg class=" w-6 h-6 text-gray-500 hover:text-deep-olive "
+                        x-show="!showMenu"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                </div>
             </div>
         </div>
+        <!-- mobile menu -->
+        <div class="hidden mobile-menu" id="mobile-menu">
+            <ul class="">
+                <li><a href="{{ url_for('index') }}" class="block text-sm px-2 py-4 font-semibold hover:text-light-olive hover:bg-deep-olive ">Home</a></li>
+                <li><a href="{{ url_for('info') }}" class="block text-sm px-2 py-4 font-semibold hover:text-light-olive hover:bg-deep-olive transition duration-300">Information</a></li>
+                <li><a href="{{ url_for('dictionary') }}" class="block text-sm px-2 py-4 font-semibold hover:text-light-olive hover:bg-deep-olive transition duration-300">Dictionary</a></li>
+                <li><a href="{{ url_for('contact') }}" class="block text-sm px-2 py-4 font-semibold hover:text-light-olive hover:bg-deep-olive transition duration-300">Contact</a></li>
+            </ul>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            const btn = document.querySelector("button.mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
+
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+        </script>
     </nav>
+   <!--SECOND NAVBAR END -->
+
+
 
     <!--<hr>-->
         {% block content %} {% endblock %}

@@ -4,13 +4,13 @@
 
 {% block content %}
 
-<div class="">
+<div class="w-screen">
 <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
     <!-- INTRO SECTION -->
 
     <!--<p class="font-semibold p-2 underline">Introduction</p>-->
         <p class="p-3 fade-in">
-            Bastaki is a dialect of Ajami or Achomi (اچُمی), also called Lar, Lari or Larestani.
+            Bastaki is a dialect of Ajami or Achomi (اچُمی), also called Lari or Larestani.
             According to UNESCO's <a class="text-green-800 underline font-semibold hover:text-green-950" href="https://unesdoc.unesco.org/ark:/48223/pf0000187026/PDF/187026eng.pdf.multi">Atlas of the World's Languages in Danger</a>, it is considered "definitely endangered."
         </p>
         <p class="p-3 fade-in">
@@ -26,7 +26,7 @@
 
     <!-- SEARCH SECTION -->
     
-    <div class="relative mt-1 p-2 ">
+    <div class="relative mt-1 p-2">
         <form method="POST" class="flex justify-center" action="{{ url_for('index') }}" id="indform" name="indform" onsubmit="submitFormAjax();">
             <input type="text" class="block pl-10 text-sm text-gray-900 border p-2
             border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-green-500 focus:border-green-500 fade-in
@@ -36,31 +36,39 @@
     </div>
 
     <div class="" id="displayhere">
-    <!-- THE DATA TO BE DISPLAYED-->
-    {% if itm | length != 0 %}
-        <table id="searchresults" class="w-4/5 text-sm text-center text-gray-700 dark:text-gray-400 fade-in">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400 content-center">
-                <tr class="w-3/4">
-                    <th scope="col" class="px-6 py-3">
+
+        
+        <!-- THE DATA TO BE DISPLAYED-->
+        {% if itm | length != 0 %} 
+
+        <div class="flex flex-col relative mt-1 p-2">
+        <div class="overflow-x-scroll sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div class="overflow-scroll">
+
+        <table id="searchresults" class="text-left text-xs min-w-full">
+            <thead class=" bg-med-olive text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
+                <tr class="">
+                    <th scope="col" class="px-6 sm:px-2 py-3">
                         English
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 sm:px-2 py-3">
                         Bastaki Transliteration
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 sm:px-2 py-3">
                         Part of Speech 
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 sm:px-2 py-3">
                         Additional Classifier
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 sm:px-2 py-3">
                         Example
                     </th>
                 </tr>
             </thead>
             <tbody>
             {% for i in itm %}
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr class="bg-light-olive border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td>{{ i[0] }}</td>
                 <td>{{ i[1] }}</td>
                 <td>{{ i[2] }}</td>
@@ -73,6 +81,11 @@
         {% else %}
         <div id="searchresults"> </div>
         {% endif %} 
+
+        </div>
+        </div>
+        </div>
+        </div>
 
     </div>
     <!--AJAX CODE-->
