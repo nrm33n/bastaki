@@ -3,7 +3,6 @@
 {% block content %}
     <!--<h1 class>{% block title %} Dictionary {% endblock %}</h1>-->
     
-<!-- SHORT INTRO -->
 
 <div class="w-screen">
 <!--<div class ="py-8 lg:py-16 px-4 mx-auto w-5/6 sm:3/4 xl:max-w-screen-lg">-->
@@ -11,7 +10,7 @@
 
         
         <!-- ABOVE TABLE BAR: SEARCH AND FILTER SECTION -->
-        <div class="pl-8 pb-4 dark:bg-gray-900 mx-auto max-w-screen-xl flow-root">
+        <div class="pl-8 pb-4 dark:bg-gray-900 mx-auto flow-root">
             <form method="POST" action="{{ url_for('dictionary') }}" class="space-y-8" name="dictionaryform" id="dictionaryform">
 
             <!-- SEARCH BAR -->
@@ -59,6 +58,10 @@
         {% if itm | length != 0 %}
             <!--<table id="searchresults" class="w-5/6 justify-items-center text-sm text-center text-gray-500 dark:text-gray-400 fade-in mx-auto 
                 rounded-xl overflow-x-auto overflow-hidden max-w-screen-xl">-->
+            <div class="flex flex-col relative mt-1 p-2">
+            <div class="overflow-x-scroll sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-scroll">
         
             <table id="searchresults" class="text-center text-xs min-w-full">
                 <thead class=" bg-med-olive text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
@@ -95,6 +98,12 @@
             {% else %}
             <div id="searchresults"> </div>
             {% endif %}
+
+
+            </div>
+            </div>
+            </div>
+            </div>
 
         </div>
 

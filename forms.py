@@ -2,8 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Optional
 
-#POS_Choices = [('all', 'All'), ('pronoun', 'Pronouns'), ('noun', 'Nouns'), ('verb', 'Verbs'), ('adjective', 'Adjectives'), ('preposition'), ('Prepositions'), ('adverb'), ('Adverbs'), ('misc'), ('Misc.')]
-
 class contactForm(FlaskForm):
     #name = StringField('Name')
     email = StringField("Email", validators=[DataRequired()])

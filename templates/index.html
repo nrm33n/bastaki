@@ -41,10 +41,10 @@
         <!-- THE DATA TO BE DISPLAYED-->
         {% if itm | length != 0 %} 
 
-        <div class="flex flex-col relative mt-1 p-2">
+        <!--<div class="flex flex-col relative mt-1 p-2">
         <div class="overflow-x-scroll sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-        <div class="overflow-scroll">
+        <div class="overflow-scroll">-->
 
         <table id="searchresults" class="text-left text-xs min-w-full">
             <thead class=" bg-med-olive text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
@@ -82,10 +82,10 @@
         <div id="searchresults"> </div>
         {% endif %} 
 
+        <!--</div>
         </div>
         </div>
-        </div>
-        </div>
+        </div>-->
 
     </div>
     <!--AJAX CODE-->
@@ -111,12 +111,19 @@
         });
     });
 
+
+    $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+
     </script>
      <!--END OF AJAX -->
 
     <p class="p-3 fade-in">To view the entire database, navigate to the <a class="text-green-800 underline hover:font-semibold hover:text-green0500" href="{{ url_for('dictionary') }}">dictionary</a>.</p>
     <p class="p-3 fade-in">More information, references, and further reading can be found in the <a class="text-green-800 underline hover:font-semibold hover:text-green0500" href="{{ url_for('info') }}">information</a> section. </p>
-    <p class="p-3"> </p>
 
 </div>
 
