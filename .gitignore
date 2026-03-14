@@ -1,0 +1,20 @@
+# SvelteKit
+.svelte-kit/
+build/
+.netlify/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python (legacy)
+__pycache__/
+virtual/
+*.pyc
+
+# OS
+.DS_Store

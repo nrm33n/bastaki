@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	h1, h2, h3 {
+		@apply font-display;
+	}
+}
+
+@layer components {
+	.btn-primary {
+		@apply bg-deep-olive text-white px-5 py-2 rounded hover:bg-opacity-90 transition font-medium;
+	}
+
+	.btn-secondary {
+		@apply border border-deep-olive text-deep-olive px-5 py-2 rounded hover:bg-med-olive transition font-medium;
+	}
+
+	.input {
+		@apply w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-deep-olive focus:border-transparent;
+	}
+
+	.table-row-alt {
+		@apply even:bg-med-olive/30;
+	}
+}
